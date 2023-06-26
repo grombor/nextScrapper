@@ -9,15 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/next-js": "^2.1.4",
     "@chakra-ui/react": "^2.7.1",
+    "@chakra-ui/system": "^2.5.8",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "cheerio": "^1.0.0-rc.12",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "framer-motion": "^10.12.17",
+    "jsdom": "^22.1.0",
     "next": "13.4.7",
+    "puppeteer": "^20.7.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.14",
+    "typescript": "5.1.3"
   }
 }
