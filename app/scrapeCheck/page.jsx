@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button, Container, Input } from '@chakra-ui/react';
 
 export default function MyComponent() {
   const [url, setUrl] = useState('');
@@ -25,14 +26,14 @@ export default function MyComponent() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
-        <input type="text" value={selector} onChange={(e) => setSelector(e.target.value)} placeholder="Selektor" />
-        <button type="submit">Scrapuj</button>
+    <Container>
+      <form py='2em' onSubmit={handleFormSubmit}>
+      <Input mt='1em' placeholder='Paste URL here'  onChange={(e) => setUrl(e.target.value)} />
+      <Input mt='1em' placeholder='Selektor'  onChange={(e) => setSelector(e.target.value)} />
+      <Button mt='1em' colorScheme='blue' onClick={handleFormSubmit}>Check Scrape</Button>
       </form>
       {isLoading && <div>Czekaj...</div>} {/* Wyświetlanie napisu "Czekaj..." podczas ładowania */}
       {result && <div>Wynik: {result}</div>}
-    </div>
+    </Container>
   );
 }
