@@ -6,7 +6,8 @@ const UserMenu = () => {
     <Box w="100%" p="6">
       <Center>
         <Link mr='2em' href="/">Strona Główna</Link>
-        <Link href="/scrape">Sprawdź swój Scrap</Link>
+        <Link href="/scrap">Sprawdź swój Scrap</Link>
+        <Link href="/scrapAll">Scrapuj</Link>
       </Center>
     </Box>
   );
