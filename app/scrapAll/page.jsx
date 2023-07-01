@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Checkbox, Stack } from '@chakra-ui/react';
-import AccordionComponent from '../components/molecues/AccordionComponent';
+import AccordionComponent from '../../app/components/molecues/AccordionComponent';
 
 export default function MyComponent() {
   const [result, setResult] = useState();
@@ -11,14 +11,14 @@ export default function MyComponent() {
 
   useEffect(() => {
     async function getScrapAll() {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
         const res = await axios.get('http://localhost:3000/api/getScrapAll');
         setResult(res.data);
       } catch (error) {
         console.log(error);
       }
-      setIsLoading(false)
+      setIsLoading(false);
     }
 
     getScrapAll();
@@ -43,7 +43,5 @@ export default function MyComponent() {
     },
   ];
 
-  return (
-      <AccordionComponent props={data} />
-  );
+  return <AccordionComponent props={data} />;
 }

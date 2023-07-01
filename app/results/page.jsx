@@ -1,21 +1,25 @@
-'use client';
+'use client'
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { usePathname, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const Results = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState([]);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const selectedUUIDs = searchParams.getAll('uuids');
 
   useEffect(() => {
     setIsLoading(true);
 
     async function getResults() {
       try {
-        const response = await axios.post('http://localhost:3000/api/getResults', {
-          uuids: [
-            "fddd59e5-f71d-416a-bd92-18ad252a2d83",
-          ]
+        const response = await axios.post('/api/getResults', {
+          uuids: selectedUUIDs,
         });
         setResult(response.data);
         console.log('response', response);
@@ -26,7 +30,9 @@ const Results = () => {
       setIsLoading(false);
     }
 
-    getResults();
+    if (selectedUUIDs.length > 0) {
+      getResults();
+    }
   }, []);
 
   return (
@@ -35,16 +41,30 @@ const Results = () => {
       {isLoading ? (
         <p>Ładowanie...</p>
       ) : (
-        <ul>
-          {result.map((item) => (
-            <li key={item.uuid}>
-              <p>Nazwa: {item.name}</p>
-              <p>URL: {item.url}</p>
-              <p>Selektor: {item.selector}</p>
-              <p>Wartość: {item.value}</p>
-            </li>
-          ))}
-        </ul>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>Nazwa</Th>
+              <Th>URL</Th>
+              <Th>Selektor</Th>
+              <Th>Wartość</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {result.map((item) => (
+              <Tr key={item.uuid}>
+                <Td>{item.name}</Td>
+                <Td>
+                  <Link href={item.url}>
+                    {item.url}
+                  </Link>
+                </Td>
+                <Td>{item.selector}</Td>
+                <Td>{item.value}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
       )}
     </div>
   );

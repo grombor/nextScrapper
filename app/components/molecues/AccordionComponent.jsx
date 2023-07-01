@@ -1,5 +1,6 @@
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box, Checkbox, Stack, Button } from '@chakra-ui/react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const AccordionComponent = ({ props }) => {
   const [selectedUUIDs, setSelectedUUIDs] = useState([]);
@@ -12,14 +13,15 @@ const AccordionComponent = ({ props }) => {
     }
   };
 
-  const handleFormSubmit = () => {
-    const query = { uuids: selectedUUIDs };
-    const queryString = new URLSearchParams(query).toString();
-    const href = `/results?${queryString}`;
+  // const handleFormSubmit = () => {
+  //   // Przygotowanie danych do przekierowania
+  //   const query = { uuids: selectedUUIDs };
+  //   const queryString = new URLSearchParams(query).toString();
+  //   const href = `/results?${queryString}`;
 
-    // Przekierowanie użytkownika
-    window.location.href = href;
-  };
+  //   // Przekierowanie użytkownika
+  //   router.push(href);
+  // };
 
   return (
     <Stack spacing={5} direction="column">
@@ -51,7 +53,9 @@ const AccordionComponent = ({ props }) => {
             );
           })}
       </Accordion>
-      <Button onClick={handleFormSubmit}>Scrap</Button>
+      <Link href={{ pathname: '/results', query: { uuids: selectedUUIDs } }}>
+          <Button>Scrap</Button>
+      </Link>
     </Stack>
   );
 };
