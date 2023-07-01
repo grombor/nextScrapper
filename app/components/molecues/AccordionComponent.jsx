@@ -19,7 +19,7 @@ const AccordionComponent = ({ props }) => {
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                    <Checkbox px={'1em'}>&nbsp;</Checkbox>
+                    <Checkbox px={'1em'} isChecked={item.isChecked}>&nbsp;</Checkbox>
                     {item.name}
                   </Box>
                   <AccordionIcon />

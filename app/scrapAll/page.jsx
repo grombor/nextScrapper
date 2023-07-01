@@ -13,7 +13,6 @@ export default function MyComponent() {
     async function getScrapAll() {
       try {
         const res = await axios.get('http://localhost:3000/api/getScrapAll');
-        console.log(res.data);
         setResult(res.data);
       } catch (error) {
         console.log(error);
