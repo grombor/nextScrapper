@@ -6,7 +6,7 @@ import { Button, Checkbox, Stack } from '@chakra-ui/react';
 import AccordionComponent from '../components/molecues/AccordionComponent';
 
 export default function MyComponent() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
