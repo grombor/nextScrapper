@@ -11,41 +11,39 @@ export default function MyComponent() {
 
   useEffect(() => {
     async function getScrapAll() {
+      setIsLoading(true)
       try {
         const res = await axios.get('http://localhost:3000/api/getScrapAll');
         setResult(res.data);
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false)
     }
 
     getScrapAll();
   }, []);
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const response = await axios.post(
-        'http://localhost:3000/api/scrapAll',
-        scrapes
-      );
-      setResult(response.data.result);
-      console.log('response', response);
-    } catch (error) {
-      console.error(error);
-    }
-
-    setIsLoading(false);
-  };
+  const data = [
+    {
+      uuid: "83617c77-1450-4764-af67-3a0b98b74a3b",
+      name: "name1",
+      url: "https://www.google.co.uk/",
+      selector: "title",
+      value: 'value1',
+      isChecked: true,
+    },
+    {
+      uuid: "fddd59e5-f71d-416a-bd92-18ad252a2d83",
+      name: "name2",
+      url: "https://www.onet.pl/",
+      selector: "title",
+      value: 'value2',
+      isChecked: false,
+    },
+  ];
 
   return (
-    <Stack spacing={5} direction="column">
-      <AccordionComponent props={result} />
-      <Button py="3em" onClick={handleFormSubmit}>
-        Scrap
-      </Button>
-    </Stack>
+      <AccordionComponent props={data} />
   );
 }

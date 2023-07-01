@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -40,7 +42,6 @@ const Results = () => {
               <p>URL: {item.url}</p>
               <p>Selektor: {item.selector}</p>
               <p>Wartość: {item.value}</p>
-              <p>Zaznaczone: {item.isChecked ? 'Tak' : 'Nie'}</p>
             </li>
           ))}
         </ul>
