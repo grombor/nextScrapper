@@ -1,4 +1,20 @@
-import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box, Checkbox, Stack, Button } from '@chakra-ui/react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+  Checkbox,
+  Stack,
+  Button,
+  Thead,
+  Table,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -33,28 +49,50 @@ const AccordionComponent = ({ props }) => {
                 <h2>
                   <AccordionButton>
                     <Box as="span" flex="1" textAlign="left">
-                      <Checkbox
+                      {/* <Checkbox
                         px={'1em'}
                         isChecked={selectedUUIDs.includes(item.uuid)}
                         onChange={() => handleCheckboxChange(item.uuid)}
                       >
                         &nbsp;
-                      </Checkbox>
+                      </Checkbox> */}
                       {item.name}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  <p>Address: {item.url}</p>
-                  <p>Selector: {item.selector}</p>
+                <Table variant="simple">
+                    <Thead>
+                      <Tr>
+                        <Th>Name</Th>
+                        <Th>Address</Th>
+                        <Th>Selector</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+
+                  {item?.scraps.map((scrap) => {
+                    return (
+
+                      <Tr>
+                        <Td>{scrap?.name}</Td>
+                        <Td>{scrap?.url}</Td>
+                        <Td>{scrap?.selector}</Td>
+                      </Tr>
+
+                    );
+                  })}
+
+</Tbody>
+                  </Table>
                 </AccordionPanel>
               </AccordionItem>
             );
           })}
       </Accordion>
       <Link href={{ pathname: '/results', query: { uuids: selectedUUIDs } }}>
-          <Button>Scrap</Button>
+        <Button>Scrap</Button>
       </Link>
     </Stack>
   );

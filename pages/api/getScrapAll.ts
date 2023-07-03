@@ -7,20 +7,58 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(405).json({ error: 'Metoda żądania nie jest obsługiwana' });
     }
 
-    const data: Array<{ uuid: string; name: string; url: string; selector: string; value: string; }> = [
+    const data: Array<{
+      name: string;
+      scraps: Array<{
+        uuid: string;
+        name: string;
+        url: string;
+        selector: string;
+        value: string;
+        isChecked: boolean;
+      }>;
+    }> = [
       {
-        uuid: uuidv4(),
-        name: "name1",
-        url: "https://www.google.co.uk/",
-        selector: "title",
-        value: ''
+        name: 'group1',
+        scraps: [
+          {
+            uuid: uuidv4(),
+            name: 'name1',
+            url: 'https://www.google.co.uk/',
+            selector: 'title',
+            value: 'value1',
+            isChecked: true,
+          },
+          {
+            uuid: uuidv4(),
+            name: 'name2',
+            url: 'https://www.onet.pl/',
+            selector: 'title',
+            value: 'value2',
+            isChecked: false,
+          },
+        ],
       },
       {
-        uuid: uuidv4(),
-        name: "name2",
-        url: "https://www.onet.pl/",
-        selector: "title",
-        value: ''
+        name: 'group2',
+        scraps: [
+          {
+            uuid: uuidv4(),
+            name: 'name1',
+            url: 'https://www.google.co.uk/',
+            selector: 'title',
+            value: 'value1',
+            isChecked: true,
+          },
+          {
+            uuid: uuidv4(),
+            name: 'name2',
+            url: 'https://www.onet.pl/',
+            selector: 'title',
+            value: 'value2',
+            isChecked: false,
+          },
+        ],
       },
     ];
 

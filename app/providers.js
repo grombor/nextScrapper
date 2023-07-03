@@ -9,7 +9,7 @@ export function Providers({
   return (
     <CacheProvider>
       <ChakraProvider>
-        <Container maxW='2xl'>
+        <Container maxW='4xl'>
         {children}
         </Container>
       </ChakraProvider>

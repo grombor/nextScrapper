@@ -24,24 +24,5 @@ export default function MyComponent() {
     getScrapAll();
   }, []);
 
-  const data = [
-    {
-      uuid: "83617c77-1450-4764-af67-3a0b98b74a3b",
-      name: "name1",
-      url: "https://www.google.co.uk/",
-      selector: "title",
-      value: 'value1',
-      isChecked: true,
-    },
-    {
-      uuid: "fddd59e5-f71d-416a-bd92-18ad252a2d83",
-      name: "name2",
-      url: "https://www.onet.pl/",
-      selector: "title",
-      value: 'value2',
-      isChecked: false,
-    },
-  ];
-
-  return <AccordionComponent props={data} />;
+  return <AccordionComponent props={result} />;
 }
