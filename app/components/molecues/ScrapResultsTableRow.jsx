@@ -1,16 +1,15 @@
+import { Td, Tr } from '@chakra-ui/react'
 import React from 'react'
 
 const ScrapResultsTableRow = ({ props }) => {
   return (
-    <Tr key={props.uuid}>
-    <Td>{props.name} name</Td>
+    <Tr key={props?.uuid}>
+    <Td>{props?.name}</Td>
     <Td>
-      {/* <Link href={item.url}> */}
-        {item.url} url
-      {/* </Link> */}
+        {props?.url}
     </Td>
-    <Td>{props.selector} selector</Td>
-    <Td>{props.value} value</Td>
+    <Td>{props?.selector}</Td>
+    <Td>{props?.value}</Td>
   </Tr>
   )
 }

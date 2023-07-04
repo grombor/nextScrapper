@@ -18,6 +18,7 @@ import {
 import { useState } from 'react';
 import Link from 'next/link';
 import ScrapTableRow from './ScrapTableRow';
+import ScrapTableHeader from './ScrapTableHeader';
 
 const AccordionComponent = ({ props }) => {
   const [selectedUUIDs, setSelectedUUIDs] = useState([]);
@@ -54,20 +55,14 @@ const AccordionComponent = ({ props }) => {
                 </h2>
                 <AccordionPanel pb={4}>
                   <Table variant="simple">
-                    <Thead>
-                      <Tr>
-                        <Th>Name</Th>
-                        <Th>Address</Th>
-                        <Th>Selector</Th>
-                      </Tr>
-                    </Thead>
+                    <ScrapTableHeader />
                     <Tbody>
                       {item?.scraps.map((scrap) => {
                         return (
                           <ScrapTableRow
                             key={scrap.uuid}
                             {...scrap}
-                            handleCheckboxChange={handleCheckboxChange}
+                            // handleCheckboxChange={handleCheckboxChange}
                           />
                         );
                       })}

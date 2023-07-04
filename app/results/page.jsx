@@ -46,11 +46,9 @@ const Results = () => {
         <Table variant="simple">
           <ScrapResultsTableHeader />
           {result.map((item) => (
-            <div key={item.uuid}>
-              <Tbody>
-                <ScrapResultsTableRow props={item} />
+              <Tbody key={item.uuid}>
+                {item.scraps.map((scrap => <ScrapResultsTableRow props={scrap} />))}
               </Tbody>
-            </div>
           ))}
         </Table>
       )}
