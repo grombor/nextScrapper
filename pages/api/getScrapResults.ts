@@ -1,3 +1,7 @@
+// TODOS:
+// - uruchomienie fukcji scrapujacej dla kazdego elementu w grupie
+// - przypisanie wyniiku fukcji scrapujaej dla parametru value
+
 import { NextApiRequest, NextApiResponse } from 'next';
 import { data } from '../data';
 

@@ -62,7 +62,6 @@ const AccordionComponent = ({ props }) => {
                           <ScrapTableRow
                             key={scrap.uuid}
                             {...scrap}
-                            // handleCheckboxChange={handleCheckboxChange}
                           />
                         );
                       })}
