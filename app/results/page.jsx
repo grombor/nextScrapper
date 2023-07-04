@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { usePathname, useSearchParams } from 'next/navigation';
+import ScrapResultsTableHeader from '../components/molecues/ScrapResultsTableHeader'
 
 const Results = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,14 +42,7 @@ const Results = () => {
         <p>Ładowanie...</p>
       ) : (
         <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>Nazwa</Th>
-              <Th>URL</Th>
-              <Th>Selektor</Th>
-              <Th>Wartość</Th>
-            </Tr>
-          </Thead>
+          <ScrapResultsTableHeader />
           <Tbody>
             {result.map((item) => (
               <Tr key={item.uuid}>
