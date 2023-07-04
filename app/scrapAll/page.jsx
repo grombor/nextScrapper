@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Checkbox, Stack } from '@chakra-ui/react';
 import AccordionComponent from '../../app/components/molecues/AccordionComponent';
 
 export default function MyComponent() {

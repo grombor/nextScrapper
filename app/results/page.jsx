@@ -1,10 +1,11 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+import ScrapResultsTableRow from '../components/molecues/ScrapResultsTableRow';
 import { usePathname, useSearchParams } from 'next/navigation';
-import ScrapResultsTableHeader from '../components/molecues/ScrapResultsTableHeader'
+import ScrapResultsTableHeader from '../components/molecues/ScrapResultsTableHeader';
 
 const Results = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +16,7 @@ const Results = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    console.log(selectedUUIDs)
 
     async function getResults() {
       try {
@@ -43,20 +45,13 @@ const Results = () => {
       ) : (
         <Table variant="simple">
           <ScrapResultsTableHeader />
-          <Tbody>
-            {result.map((item) => (
-              <Tr key={item.uuid}>
-                <Td>{item.name}</Td>
-                <Td>
-                  {/* <Link href={item.url}> */}
-                    {item.url}
-                  {/* </Link> */}
-                </Td>
-                <Td>{item.selector}</Td>
-                <Td>{item.value}</Td>
-              </Tr>
-            ))}
-          </Tbody>
+          {result.map((item) => (
+            <div key={item.uuid}>
+              <Tbody>
+                <ScrapResultsTableRow props={item} />
+              </Tbody>
+            </div>
+          ))}
         </Table>
       )}
     </div>

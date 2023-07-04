@@ -5,9 +5,9 @@ const ScrapTableRow = ({ name, url, selector, uuid, handleCheckboxChange }) => {
   return (
     <Tr>
       <Td>
-        <Checkbox px={'1em'} onChange={() => handleCheckboxChange(uuid)}>
+        {/* <Checkbox px={'1em'} onChange={() => handleCheckboxChange(uuid)}>
           &nbsp;
-        </Checkbox>
+        </Checkbox> */}
         {name}
       </Td>
       <Td>{url}</Td>
