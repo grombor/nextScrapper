@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Box, Button, Center, Container, Input } from '@chakra-ui/react';
+import { Button, Center, Container, Input } from '@chakra-ui/react';
+import { scrapeData } from '../../pages/scraper';
 
 export default function MyComponent() {
   const [url, setUrl] = useState('');
@@ -15,7 +15,7 @@ export default function MyComponent() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/checkSelector', { url, selector });
+      const response = scrapeData(url, selector);
       setResult(response.data.result);
     } catch (error) {
       console.error(error);
@@ -26,16 +26,26 @@ export default function MyComponent() {
 
   return (
     <Container size={'2xl'}>
-      <form py='2em' onSubmit={handleFormSubmit}>
-      <Input mt='1em' placeholder='Paste URL here'  onChange={(e) => setUrl(e.target.value)} />
-      <Input mt='1em' placeholder='Selektor'  onChange={(e) => setSelector(e.target.value)} />
-      <Center mt='1em'>
-      <Button mt='1em' colorScheme='blue' onClick={handleFormSubmit}>Check Scrape</Button>
-      </Center>
+      <form py="2em" onSubmit={handleFormSubmit}>
+        <Input
+          mt="1em"
+          placeholder="Paste URL here"
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <Input
+          mt="1em"
+          placeholder="Selektor"
+          onChange={(e) => setSelector(e.target.value)}
+        />
+        <Center mt="1em">
+          <Button mt="1em" colorScheme="blue" onClick={handleFormSubmit}>
+            Check Scrape
+          </Button>
+        </Center>
       </form>
-      <Center mt='2.5em'>
-      {isLoading && <div>Czekaj...</div>}
-      {result && <div>Wynik: {result}</div>}
+      <Center mt="2.5em">
+        {isLoading && <div>Czekaj...</div>}
+        {result && <div>Wynik: {result}</div>}
       </Center>
     </Container>
   );
