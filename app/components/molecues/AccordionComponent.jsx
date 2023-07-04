@@ -5,7 +5,6 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
-  Checkbox,
   Stack,
   Button,
   Thead,
@@ -17,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import Link from 'next/link';
+import ScrapTableRow from './ScrapTableRow';
 
 const AccordionComponent = ({ props }) => {
   const [selectedUUIDs, setSelectedUUIDs] = useState([]);
@@ -35,8 +35,6 @@ const AccordionComponent = ({ props }) => {
   //   const queryString = new URLSearchParams(query).toString();
   //   const href = `/results?${queryString}`;
 
-  //   // Przekierowanie użytkownika
-  //   router.push(href);
   // };
 
   return (
@@ -49,20 +47,13 @@ const AccordionComponent = ({ props }) => {
                 <h2>
                   <AccordionButton>
                     <Box as="span" flex="1" textAlign="left">
-                      {/* <Checkbox
-                        px={'1em'}
-                        isChecked={selectedUUIDs.includes(item.uuid)}
-                        onChange={() => handleCheckboxChange(item.uuid)}
-                      >
-                        &nbsp;
-                      </Checkbox> */}
                       {item.name}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                <Table variant="simple">
+                  <Table variant="simple">
                     <Thead>
                       <Tr>
                         <Th>Name</Th>
@@ -71,20 +62,12 @@ const AccordionComponent = ({ props }) => {
                       </Tr>
                     </Thead>
                     <Tbody>
-
-                  {item?.scraps.map((scrap) => {
-                    return (
-
-                      <Tr>
-                        <Td>{scrap?.name}</Td>
-                        <Td>{scrap?.url}</Td>
-                        <Td>{scrap?.selector}</Td>
-                      </Tr>
-
-                    );
-                  })}
-
-</Tbody>
+                      {item?.scraps.map((scrap) => {
+                        return (
+                          <ScrapTableRow key={scrap.uuid} {...scrap} handleCheckboxChange={handleCheckboxChange} />
+                        );
+                      })}
+                    </Tbody>
                   </Table>
                 </AccordionPanel>
               </AccordionItem>
@@ -92,8 +75,8 @@ const AccordionComponent = ({ props }) => {
           })}
       </Accordion>
       <Link href={{ pathname: '/results', query: { uuids: selectedUUIDs } }}>
-        <Button>Scrap</Button>
-      </Link>
+  <Button>Scrap</Button>
+</Link>
     </Stack>
   );
 };

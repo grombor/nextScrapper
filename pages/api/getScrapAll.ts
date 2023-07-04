@@ -1,66 +1,11 @@
-import { v4 as uuidv4 } from 'uuid';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { data } from './data';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method !== 'GET') {
       return res.status(405).json({ error: 'Metoda żądania nie jest obsługiwana' });
     }
-
-    const data: Array<{
-      name: string;
-      scraps: Array<{
-        uuid: string;
-        name: string;
-        url: string;
-        selector: string;
-        value: string;
-        isChecked: boolean;
-      }>;
-    }> = [
-      {
-        name: 'group1',
-        scraps: [
-          {
-            uuid: uuidv4(),
-            name: 'name1',
-            url: 'https://www.google.co.uk/',
-            selector: 'title',
-            value: 'value1',
-            isChecked: true,
-          },
-          {
-            uuid: uuidv4(),
-            name: 'name2',
-            url: 'https://www.onet.pl/',
-            selector: 'title',
-            value: 'value2',
-            isChecked: false,
-          },
-        ],
-      },
-      {
-        name: 'group2',
-        scraps: [
-          {
-            uuid: uuidv4(),
-            name: 'name1',
-            url: 'https://www.google.co.uk/',
-            selector: 'title',
-            value: 'value1',
-            isChecked: true,
-          },
-          {
-            uuid: uuidv4(),
-            name: 'name2',
-            url: 'https://www.onet.pl/',
-            selector: 'title',
-            value: 'value2',
-            isChecked: false,
-          },
-        ],
-      },
-    ];
 
     res.status(200).json(data);
   } catch (error) {

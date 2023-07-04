@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { usePathname, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 
 const Results = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +17,7 @@ const Results = () => {
 
     async function getResults() {
       try {
-        const response = await axios.post('/api/getResults', {
+        const response = await axios.post('/api/getScrapResults', {
           uuids: selectedUUIDs,
         });
         setResult(response.data);
@@ -55,9 +54,9 @@ const Results = () => {
               <Tr key={item.uuid}>
                 <Td>{item.name}</Td>
                 <Td>
-                  <Link href={item.url}>
+                  {/* <Link href={item.url}> */}
                     {item.url}
-                  </Link>
+                  {/* </Link> */}
                 </Td>
                 <Td>{item.selector}</Td>
                 <Td>{item.value}</Td>
