@@ -1,10 +1,9 @@
-import cheerio from 'cheerio';
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import scrapData from '../scraper';
 
 interface Result {
   error?: string;
-  result?: string;
+  result?: string | null;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -28,10 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         continue;
       }
 
-      const response = await axios.get(url);
-      const html = response.data;
-      const $ = cheerio.load(html);
-      const selectedElement = $(selector).text();
+      const selectedElement = await scrapData(url, selector);
 
       results.push({ result: selectedElement });
     }

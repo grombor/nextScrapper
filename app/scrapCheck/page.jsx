@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Button, Center, Container, Input } from '@chakra-ui/react';
-import { scrapeData } from '../../pages/scraper';
+import { scrapData } from '../../pages/scraper';
 
 export default function MyComponent() {
   const [url, setUrl] = useState('');
@@ -15,7 +15,7 @@ export default function MyComponent() {
     setIsLoading(true);
 
     try {
-      const response = scrapeData(url, selector);
+      const response = scrapData(url, selector);
       setResult(response.data.result);
     } catch (error) {
       console.error(error);
