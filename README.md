@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+TODOs:
 
-## Getting Started
+- dodanie daty do scrapowanego elementu
 
-First, run the development server:
+endpoint scrapujacy uzywajacy protokolu:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+{
+  "groups": [
+    {
+      "name": "group1",
+      "uuid": "e5e171b2-60ae-40d6-94a7-de5b6ad8ccaf",
+      "isChecked": true,
+      "scraps": [
+        {
+          "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
+          "name": "name1",
+          "url": "https://www.google.co.uk/",
+          "isChecked": true,
+          "selectors": [
+            {
+              "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
+              "selector": "title",
+              "value": "Google",
+              "isChecked": true
+            },
+            {
+              "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd189",
+              "selector": "body",
+              "value": "Welcome to Google",
+              "isChecked": true
+            }
+          ]
+        },
+        {
+          "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd187",
+          "name": "name1",
+          "url": "https://www.google.co.uk/",
+          "isChecked": true,
+          "selectors": [
+            {
+              "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd186",
+              "selector": "title",
+              "value": "Google",
+              "isChecked": true
+            },
+            {
+              "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd185",
+              "selector": "body",
+              "value": "Welcome to Google",
+              "isChecked": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
