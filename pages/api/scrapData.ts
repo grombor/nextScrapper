@@ -1,3 +1,34 @@
+/**
+ * Scrapuje dane z podanej strony internetowej na podstawie dostarczonych selektorów.
+ * @param {NextApiRequest} req - Obiekt NextApiRequest reprezentujący żądanie HTTP.
+ * @param {NextApiResponse} res - Obiekt NextApiResponse reprezentujący odpowiedź HTTP.
+ * @returns {Promise<void>} - Promise bez wartości zwracanej.
+ *
+ * @example
+ *  Przykładowy request
+ *  POST /api/scrapData
+ * {
+ *    "url": "https://www.example.com",
+ *    "selectors": [
+ *      {
+ *        "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
+ *        "selector": "h1",
+ *        "isChecked": true
+ *      },
+ *      {
+ *        "uuid": "e62de0ab-79ae-4c80-ac2a-b6a9986090f5",
+ *        "selector": "p",
+ *        "isChecked": false
+ *      }
+ *    ]
+ *  }
+ *
+ * @throws {Error} - Jeśli wystąpi błąd podczas scrapowania danych.
+ */
+
+
+
+
 import axios from 'axios';
 import cheerio from 'cheerio';
 import { NextApiRequest, NextApiResponse } from 'next';
