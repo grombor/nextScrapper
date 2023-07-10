@@ -1,6 +1,10 @@
 TODOs:
 
 - dodanie daty do scrapowanego elementu
+- dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
+- dodanie odpowiednika, nazwy producenta etc
+- nazwa grupy powinna pochodzic z JSONa
+- dodanie apidoc do jsdocs
 
 endpoint scrapujacy uzywajacy protokolu:
 
