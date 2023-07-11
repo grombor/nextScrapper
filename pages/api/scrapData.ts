@@ -1,94 +1,41 @@
 /**
  * Scrapuje dane z podanej strony internetowej na podstawie dostarczonych selektorów.
- * @param {NextApiRequest} req - Obiekt NextApiRequest reprezentujący żądanie HTTP.
- * @param {NextApiResponse} res - Obiekt NextApiResponse reprezentujący odpowiedź HTTP.
+ * @param {Object} req - Obiekt reprezentujący żądanie HTTP.
+ * @param {Object} res - Obiekt reprezentujący odpowiedź HTTP.
  * @returns {Promise<void>} - Promise bez wartości zwracanej.
- *
- * @example
- * // Przykładowy request
- * // POST /api/scrapData
- * // {
- * //   "url": "https://www.example.com",
- * //   "selectors": [
- * //     {
- * //       "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
- * //       "name": "Header",
- * //       "selector": "h1",
- * //       "isChecked": true
- * //     },
- * //     {
- * //       "uuid": "e62de0ab-79ae-4c80-ac2a-b6a9986090f5",
- * //       "name": "Paragraph",
- * //       "selector": "p",
- * //       "isChecked": false
- * //     }
- * //   ]
- * // }
- *
  * @throws {Error} - Jeśli wystąpi błąd podczas scrapowania danych.
  */
 
 
-import axios from 'axios';
-import cheerio from 'cheerio';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { scrapeValueFromWebsite } from '../scraper';
 
-interface ScrapResult {
-uuid: string;
-name: string;
-selector: string;
-isChecked: boolean;
-value: string;
-}
+export default async function scrapData(req, res) {
+  try {
+    const { url, selectors } = req.body;
 
-interface ScrapSelector {
-uuid: string;
-name: string;
-selector: string;
-isChecked: boolean;
-}
+    const results = await Promise.all(
+      selectors.map(async (selector) => {
+        const { uuid, name, selector: selectorString, isChecked } = selector;
+        const value = await scrapeValueFromWebsite(url, selectorString);
 
-interface ScrapDataRequest {
-url: string;
-selectors: ScrapSelector[];
-}
+        return {
+          uuid,
+          name,
+          selector: selectorString,
+          isChecked: Boolean(isChecked),
+          value,
+        };
+      })
+    );
 
-interface ScrapDataResult {
-url: string;
-selectors: ScrapResult[];
-}
+    const dataResult = {
+      url,
+      selectors: results,
+    };
 
-export default async function scrapData(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-try {
-const { url, selectors }: ScrapDataRequest = req.body;
-
-const response = await axios.post(url, { selectors });
-const html = response.data;
-const $ = cheerio.load(html);
-
-const results: ScrapResult[] = selectors.map((selector) => {
-  const { uuid, name, selector: selectorString, isChecked } = selector;
-  const value = $(selectorString).text();
-
-  const scrapResult: ScrapResult = {
-    uuid,
-    name,
-    selector: selectorString,
-    isChecked: Boolean(isChecked),
-    value: value
-  };
-
-  return scrapResult;
-});
-
-const dataResult: ScrapDataResult = {
-  url,
-  selectors: results,
-};
-
-res.json(dataResult);
-} catch (error) {
-console.error(error);
-res.status(500).json({ error: 'Błąd serwera' });
-}
+    res.json(dataResult);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Błąd serwera' });
+  }
 }

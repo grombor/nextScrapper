@@ -1,6 +1,7 @@
 TODOs:
 
-- dodanie daty do scrapowanego elementu
+- [x] Jako użytkownik chciałbym w web scrapperze wydobyć wartości ze strony na podstawie dostarczonego przeze mnie kodu JSON. Chciałbym mieć możliwość określenia strony, z której chcę pobrać dane, oraz wskazania selektorów, które mają zostać zastosowane do wydobycia konkretnych wartości. Po przetworzeniu strony, oczekiwałbym otrzymać rezultat zawierający wybrane wartości wraz z informacjami o selektorach.
+
 - dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
 - dodanie odpowiednika, nazwy producenta etc
 - nazwa grupy powinna pochodzic z JSONa

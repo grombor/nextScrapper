@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-export default async function scrapData(url: string, selector: string) {
+export async function scrapeValueFromWebsite(url, selector) {
   try {
     const response = await axios.get(url);
     const html = response.data;
