@@ -18,24 +18,6 @@ import axios from 'axios';
   function page() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    // const data = {
-    //   "url": "https://www.example.com",
-    //   "selectors": [
-    //     {
-    //       "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
-    //       "name": "Header",
-    //       "selector": "h1",
-    //       "isChecked": true
-    //     },
-    //     {
-    //       "uuid": "e62de0ab-79ae-4c80-ac2a-b6a9986090f5",
-    //       "name": "Paragraph",
-    //       "selector": "p",
-    //       "isChecked": false
-    //     }
-    //   ]
-    // }
-    
 
     const handleSecondaryAction = async () => {
         const textareaValue = document.getElementById('myTextarea').value;

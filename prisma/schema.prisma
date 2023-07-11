@@ -11,20 +11,23 @@ datasource db {
 }
 
 model Group {
-  id      Int      @id @default(autoincrement())
+  uuid    String   @id @default(uuid())
   name    String
-  uuid    String   @unique
   scraps  Scrap[]
 }
 
 model Scrap {
-  id          Int      @id @default(autoincrement())
-  name        String
-  uuid        String   @unique
-  url         String
-  selector    String
-  value       String
-  isChecked   Boolean
-  groupId     Int
-  group       Group    @relation(fields: [groupId], references: [id])
+  uuid      String   @id @default(uuid())
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Selector {
+  uuid      String   @id @default(uuid())
+  name      String
+  selector  String
+  isChecked Boolean
+  scrapUuid String
+  scrap     Scrap    @relation(fields: [scrapUuid], references: [uuid])
 }
