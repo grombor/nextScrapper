@@ -7,7 +7,8 @@ const UserMenu = () => {
       <Center>
         <Link href="/" mr='2em'>Strona Główna</Link>
         <Link href="/scrapCheck" mr='2em'>Sprawdź Scrap</Link>
-        <Link href="/scrapAll" mr='2em'>Scrapuj</Link>
+        <Link href="/scrapData" mr='2em'>Scrapuj</Link>
+        <Link href="/scrapAll" mr='2em'>Scrapuj wiele</Link>
       </Center>
     </Box>
   );

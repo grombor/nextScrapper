@@ -29,65 +29,66 @@
  */
 
 
-
 import axios from 'axios';
 import cheerio from 'cheerio';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 interface ScrapResult {
-  uuid: string;
-  name: string;
-  selector: string;
-  isChecked: boolean;
+uuid: string;
+name: string;
+selector: string;
+isChecked: boolean;
+value: string;
 }
 
 interface ScrapSelector {
-  uuid: string;
-  name: string;
-  selector: string;
-  isChecked: boolean;
+uuid: string;
+name: string;
+selector: string;
+isChecked: boolean;
 }
 
 interface ScrapDataRequest {
-  url: string;
-  selectors: ScrapSelector[];
+url: string;
+selectors: ScrapSelector[];
 }
 
 interface ScrapDataResult {
-  url: string;
-  selectors: ScrapResult[];
+url: string;
+selectors: ScrapResult[];
 }
 
-export default async function scrapData(req: NextApiRequest, res: NextApiResponse) {
-  try {
-    const { url, selectors }: ScrapDataRequest = req.body;
+export default async function scrapData(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+try {
+const { url, selectors }: ScrapDataRequest = req.body;
 
-    const response = await axios.post(url, { selectors });
-    const html = response.data;
-    const $ = cheerio.load(html);
+const response = await axios.post(url, { selectors });
+const html = response.data;
+const $ = cheerio.load(html);
 
-    const results: ScrapResult[] = selectors.map((selector) => {
-      const { uuid, name, selector: selectorString, isChecked } = selector;
-      const value = $(selectorString).text();
+const results: ScrapResult[] = selectors.map((selector) => {
+  const { uuid, name, selector: selectorString, isChecked } = selector;
+  const value = $(selectorString).text();
 
-      const scrapResult: ScrapResult = {
-        uuid,
-        name,
-        selector: selectorString,
-        isChecked: Boolean(isChecked),
-      };
+  const scrapResult: ScrapResult = {
+    uuid,
+    name,
+    selector: selectorString,
+    isChecked: Boolean(isChecked),
+    value: value
+  };
 
-      return scrapResult;
-    });
+  return scrapResult;
+});
 
-    const dataResult: ScrapDataResult = {
-      url,
-      selectors: results,
-    };
+const dataResult: ScrapDataResult = {
+  url,
+  selectors: results,
+};
 
-    res.json(dataResult);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Błąd serwera' });
-  }
+res.json(dataResult);
+} catch (error) {
+console.error(error);
+res.status(500).json({ error: 'Błąd serwera' });
+}
 }

@@ -73,7 +73,7 @@ const AccordionComponent = ({ props }) => {
           })}
       </Accordion>
       <Link href={{ pathname: '/results', query: { uuids: selectedUUIDs } }}>
-        <Button>Scrap</Button>
+        <Button>Scrapuj zaznaczone</Button>
       </Link>
     </Stack>
   );
