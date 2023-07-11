@@ -1,5 +1,5 @@
 TODOs:
-
+- [x] Jako użytkownik chciałbym mieć możliwość sprawdzenia wyniku pobierania treści ze strony za pomocą adresu URL i web scrappera. Chciałbym wprowadzić adres URL do formularza, a także wybrać odpowiednie selektory dla interesujących mnie elementów na stronie. Po kliknięciu przycisku "Sprawdź scrappera" oczekuję, że web scraper pobierze zawartość strony na podstawie podanego URL i zwróci wartości dla wybranych selektorów. Chciałbym zobaczyć otrzymane wyniki na stronie, aby ocenić poprawność działania scrappera i upewnić się, że pobrane treści odpowiadają moim oczekiwaniom.
 - [x] Jako użytkownik chciałbym w web scrapperze wydobyć wartości ze strony na podstawie dostarczonego przeze mnie kodu JSON. Chciałbym mieć możliwość określenia strony, z której chcę pobrać dane, oraz wskazania selektorów, które mają zostać zastosowane do wydobycia konkretnych wartości. Po przetworzeniu strony, oczekiwałbym otrzymać rezultat zawierający wybrane wartości wraz z informacjami o selektorach.
 
 - dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
