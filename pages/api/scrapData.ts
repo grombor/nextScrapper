@@ -6,33 +6,58 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== 'POST') {
-    return res
-      .status(405)
-      .json({ error: 'Request method is not supported.' });
+    return res.status(405).json({ error: 'Metoda żądania nie jest obsługiwana.' });
   }
 
   try {
-    const scraps = req.body.scraps;
-    let results = null;
+    const {
+      uuid,
+      name,
+      createdDate,
+      lastModifiedDate,
+      isChecked,
+      author,
+      scraps,
+    } = req.body;
 
-    await Promise.all(
+    const results: {
+      uuid: string;
+      name: string;
+      createdDate: string;
+      lastModifiedDate: string;
+      isChecked: boolean;
+      author: string;
+      scraps: { url: string; selectors: string[] }[];
+    } = {
+      uuid,
+      name,
+      createdDate,
+      lastModifiedDate,
+      isChecked,
+      author,
+      scraps: [],
+    };
+
+    const scrapedValues = await Promise.all(
       scraps.map(async (scrap) => {
         const { url, selectors } = scrap;
-        const scrapedValue = await scrapeValueFromWebsite(url, selectors);
-        results = scrapedValue;
-        return results;
+        const scrapedValue: string[] = await scrapeValueFromWebsite(url, selectors);
+        return {
+          url,
+          selectors: scrapedValue,
+        };
       })
     );
 
+    results.scraps = scrapedValues;
+
     if (!results) {
-      return res
-        .status(400)
-        .json({ error: 'Invalid request. Missing input data.' });
+      return res.status(400).json({ error: 'Nieprawidłowe żądanie. Brak danych wejściowych.' });
     }
 
     return res.status(200).json(results);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Server error' });
+    return res.status(500).json({ error: 'Błąd serwera.' });
   }
 }
