@@ -1,3 +1,10 @@
+/**
+ * Zwraca grupę o identyfikatorze UUID.
+ *
+ * @param {string} uuid Identyfikator UUID grupy.
+ * @returns {Response} Odpowiedź HTTP z grupą.
+ */
+
 import { NextApiRequest, NextApiResponse } from 'next';
 import { data } from '../data';
 
