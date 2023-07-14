@@ -1,14 +1,13 @@
 TODOs:
 - [x] Jako użytkownik chciałbym mieć możliwość sprawdzenia wyniku pobierania treści ze strony za pomocą adresu URL i web scrappera. Chciałbym wprowadzić adres URL do formularza, a także wybrać odpowiednie selektory dla interesujących mnie elementów na stronie. Po kliknięciu przycisku "Sprawdź scrappera" oczekuję, że web scraper pobierze zawartość strony na podstawie podanego URL i zwróci wartości dla wybranych selektorów. Chciałbym zobaczyć otrzymane wyniki na stronie, aby ocenić poprawność działania scrappera i upewnić się, że pobrane treści odpowiadają moim oczekiwaniom.
 - [x] Jako użytkownik chciałbym w web scrapperze wydobyć wartości ze strony na podstawie dostarczonego przeze mnie kodu JSON. Chciałbym mieć możliwość określenia strony, z której chcę pobrać dane, oraz wskazania selektorów, które mają zostać zastosowane do wydobycia konkretnych wartości. Po przetworzeniu strony, oczekiwałbym otrzymać rezultat zawierający wybrane wartości wraz z informacjami o selektorach.
-- [ ] Dostosowanie endpointu scrapującego do przyjmowania i przetwarzania nowych danych
-`git checkout -b feature/updated-input-processing`
-- [ ] Jako użytkownik, chcę być informowany, gdy żądanie do endpointa nie jest obsługiwane, aby uniknąć nieoczekiwanego zachowania aplikacji.
+- [ x ] Dostosowanie endpointu scrapującego do przyjmowania i przetwarzania nowych danych
+- [ x ] Jako użytkownik, chcę być informowany, gdy żądanie do endpointa nie jest obsługiwane, aby uniknąć nieoczekiwanego zachowania aplikacji.
   - Zaakceptuję wiadomość o błędzie o kodzie 405, jeśli wyślę żądanie inną metodą niż POST.
-`git checkout -b feature/handling-unsupported-request-errors`
-- [ ] Jako użytkownik, chcę otrzymywać poprawne komunikaty błędów, gdy wystąpią problemy z serwerem lub zapytaniem, aby łatwiej zidentyfikować przyczynę problemu.
+- [ x ] Jako użytkownik, chcę otrzymywać poprawne komunikaty błędów, gdy wystąpią problemy z serwerem lub zapytaniem, aby łatwiej zidentyfikować przyczynę problemu.
   - Zaakceptuję wiadomość o błędzie o kodzie 500 i informację "Błąd serwera", jeśli wystąpił problem z serwerem.
   - Zaakceptuję wiadomość o błędzie o kodzie 400 i odpowiednie informacje, jeśli żądanie było nieprawidłowe.
+`git checkout -b feature/handling-unsupported-request-errors`
 - [ ] Jako użytkownik, chcę, aby żądanie było wykonywane w ograniczonym czasie, aby uniknąć długiego oczekiwania na odpowiedź.
   - Zaakceptuję ustalenie limitu czasu na wykonanie żądania i otrzymam odpowiedni komunikat błędu, jeśli limit zostanie przekroczony.
 - [ ] Jako użytkownik, chcę, aby pobieranie danych było wydajne, szczególnie gdy mam wiele selektorów.

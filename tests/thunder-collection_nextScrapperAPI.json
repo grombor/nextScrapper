@@ -1,0 +1,132 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "nextScrapperAPI",
+    "dateExported": "2023-07-14T19:24:13.139Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b47ae3d6-6e08-4d6b-aeec-03c6a0f6bf11",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "",
+            "name": "postScrapData",
+            "url": "http://localhost:3000/api/scrapData",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-07-11T21:09:16.352Z",
+            "modified": "2023-07-14T18:48:27.669Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n  \"name\": \"Site XYZ\",\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\n  \"isChecked\": false,\n  \"author\": \"Bard\",\n  \"scraps\": [\n    {\n      \"url\": \"https://www.example.com\",\n      \"selectors\": [\n                {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"title\",\n          \"selector\": \"title\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"name\",\n          \"selector\": \"product-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e8b9987f-bfbb-4c0c-bc35-7d95a0e10543\",\n          \"name\": \"dealer\",\n          \"selector\": \"dealer-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"f8c43215-b249-4d8e-b9b1-12f6a88335a5\",\n          \"name\": \"manufacturer\",\n          \"selector\": \"manufacturer-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"90e714bb-1a17-492f-bdf1-8c5d70db1620\",\n          \"name\": \"month\",\n          \"selector\": \"month\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"dfc58a3a-79d3-4ab5-89d0-0e68a26ac6a1\",\n          \"name\": \"year\",\n          \"selector\": \"year\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e9f5822a-3e62-42db-bb20-6ab1c53d875c\",\n          \"name\": \"model\",\n          \"selector\": \"model\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"172be69a-1609-454f-b21c-739d4ae2b4d4\",\n          \"name\": \"substitute\",\n          \"selector\": \"substitute\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"5e518e6e-518b-4e17-aa4a-c8f57fd61b6a\",\n          \"name\": \"cataloguePriceNett\",\n          \"selector\": \"catalogue_price_nett\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"90f9c1b2-7084-4d64-b5d7-66ed2327e5e3\",\n          \"name\": \"shopPriceNett\",\n          \"selector\": \"shop_price_nett\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"d14ff67f-557d-42f1-8a14-167915f1fbad\",\n          \"name\": \"productHeight\",\n          \"selector\": \"product_height\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e47fabb0-6aae-4f7a-8fd3-58b3b2b6418f\",\n          \"name\": \"productWidth\",\n          \"selector\": \"product_width\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"c58d8cbf-b654-41ce-a536-9fc82599fc5d\",\n          \"name\": \"productDepth\",\n          \"selector\": \"product_depth\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"758ce536-829f-4b55-a1f5-0f0e349c5371\",\n          \"name\": \"productFeatures\",\n          \"selector\": \"product_features\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"9fd64115-8d71-4c0b-b7c2-672e6bda71e9\",\n          \"name\": \"productCardLink\",\n          \"selector\": \"product_card_link\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"d799d5b4-3ef5-4986-bd67-6b6768c8e81d\",\n          \"name\": \"leadTime\",\n          \"selector\": \"lead_time\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"32a6a0f9-d3b6-4a11-8659-33b09b0f97a9\",\n          \"name\": \"productWarranty\",\n          \"selector\": \"product_warranty\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"1d7e9af9-16b6-4d33-bc54-1798b0a32e20\",\n          \"name\": \"comment\",\n          \"selector\": \"comment\",\n          \"value\": \"\",\n          \"isChecked\": true\n        }\n      ]\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "1ff53afa-72e4-4899-bb4c-4c86de5e1235",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "",
+            "name": "getScrapData",
+            "url": "http://localhost:3000/api/scrapData",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-07-11T21:09:27.033Z",
+            "modified": "2023-07-11T21:10:30.287Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"url\": \"https://www.example.com\",\n  \"selectors\": [\n    {\n      \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n      \"name\": \"Header\",\n      \"selector\": \"h1\",\n      \"isChecked\": true\n    },\n    {\n      \"uuid\": \"e62de0ab-79ae-4c80-ac2a-b6a9986090f5\",\n      \"name\": \"Paragraph\",\n      \"selector\": \"p\",\n      \"isChecked\": false\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "405"
+                }
+            ]
+        },
+        {
+            "_id": "e9fdbd74-35e5-47dd-9b6d-09eea97bac8b",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "",
+            "name": "checkSelector",
+            "url": "http://localhost:3000/api/scrapData",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-07-11T21:09:31.913Z",
+            "modified": "2023-07-14T19:21:26.171Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n  \"name\": \"Site XYZ\",\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\n  \"isChecked\": false,\n  \"author\": \"Bard\",\n  \"scraps\": [\n    {\n      \"url\": \"https://www.example.com\",\n      \"selectors\": [\n                {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"title\",\n          \"selector\": \"title\",\n          \"value\": \"\",\n          \"isChecked\": true\n        }\n    ]\n    }\n]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "90a51e85-298e-41a1-adb6-1c826846fecb",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "",
+            "name": "getCheckSelector",
+            "url": "http://localhost:3000/api/scrapData",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-07-11T21:09:37.409Z",
+            "modified": "2023-07-11T21:14:44.983Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"url\": \"https://cheerio.js.org/docs/basics/loading\",\n  \"selectors\": [\n    {\n      \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n      \"name\": \"title\",\n      \"selector\": \"title\",\n      \"isChecked\": true\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "405"
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "runOptions": {
+            "delay": 150,
+            "iterations": 1,
+            "dataFilePath": ""
+        }
+    }
+}
