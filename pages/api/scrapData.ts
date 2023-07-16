@@ -20,6 +20,11 @@ export default async function handler(
       scraps,
     } = req.body;
 
+    const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+const day = currentDate.getDate();
+
     const results: {
       uuid: string;
       name: string;
@@ -32,7 +37,7 @@ export default async function handler(
       uuid,
       name,
       createdDate,
-      lastModifiedDate,
+      lastModifiedDate: `${year}-${month}-${day}`,
       isChecked,
       author,
       scraps: [],

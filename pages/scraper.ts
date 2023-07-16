@@ -9,14 +9,14 @@ export async function scrapeValueFromWebsite(url, selectors) {
     const $ = cheerio.load(html);
 
     const results = selectors.map((selector) => {
-      const { uuid, name, selector: selectorString, isChecked } = selector;
-      let value = applyFormatRules($(selectorString).text());
+      const { uuid, name, selector: selectorString, value: newValue, isChecked } = selector;
+      let scrapedValue = applyFormatRules($(selectorString).text());
 
       return {
         uuid,
         name,
         selector: selectorString,
-        value,
+        value: newValue ?? scrapedValue,
         isChecked: Boolean(isChecked),
       };
     });
