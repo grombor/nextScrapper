@@ -17,35 +17,40 @@ import {
   OrderedList,
   UnorderedList,
   Heading,
-} from '@chakra-ui/react'
+  Spinner,
+  Center,
+  Box,
+  Flex,
+  Spacer,
+} from '@chakra-ui/react';
+import { DownloadIcon } from '@chakra-ui/icons'
 import axios from 'axios';
 import { useState } from 'react';
 
 function page() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [result, setResult] = useState({})
+  const [result, setResult] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSecondaryAction = async () => {
     const textareaValue = document.getElementById('myTextarea').value;
     const scrap = JSON.parse(textareaValue);
-    setResult(scrap);
+    setIsLoading(true);
     onClose();
     try {
       const response = await axios.post(
         'http://localhost:3000/api/scrapData',
         scrap
       );
-      console.log(scrap)
-      // const newScrap = response.data;
-      // setResult(newScrap)
-      // console.log(result)
+      setResult(response.data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <>
+    <Box w='100%'>
       <Button onClick={onOpen}>Open Modal</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -72,12 +77,39 @@ function page() {
         </ModalContent>
       </Modal>
 
-      {/* <Heading as='h1' size='4xl'></Heading>
+      {isLoading ? (
+        <Box>
+          <Center>
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+          </Center>
+        </Box>
+      ) : null}
 
-      <OrderedList>
-        { Array.from(result).map((item) => <ListItem key={item.uuid}>{item.name}:&nbsp;{item.value}</ListItem>) }
+      {result.name ? null : (
+        <Box>
+          <Heading as="h1" size="md" pt="1em">
+            {result.name}
+          </Heading>
+          <Flex>
+          <Box w='50%'>lastModifiedDate: {result.lastModifiedDate}</Box>
+          <Spacer />
+          <Box>
+          <DownloadIcon />
+          </Box>
+          </Flex>
+        </Box>
+      )}
+
+      {/* <OrderedList>
+        { result.scraps.map((item) => <ListItem key={item.url}>{item.url}</ListItem>) }
       </OrderedList> */}
-    </>
+    </Box>
   );
 }
 
