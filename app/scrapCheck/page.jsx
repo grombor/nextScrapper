@@ -1,23 +1,3 @@
-// @example
-
-// form values:
-// "url": "https://cheerio.js.org/docs/basics/loading",
-// "selector": "title",
-
-// request value:
-// {
-//   "url": "https://cheerio.js.org/docs/basics/loading",
-//   "selectors": [
-//     {
-//       "uuid": "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
-//       "name": "title",
-//       "selector": "title",
-//       "isChecked": true
-//     }
-//   ]
-// }
-
-
 'use client';
 
 import React, { useState } from 'react';
@@ -33,24 +13,38 @@ export default function MyComponent() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    const currentDate = new Date().toISOString();
+
     const scrapData = {
-      "url": url,
-      "selectors": [
+      uuid: "d039a4cb-c61d-4b78-b689-d3ac8d1dd188",
+      name: "Test",
+      createdDate: currentDate,
+      lastModifiedDate: currentDate,
+      isChecked: false,
+      author: "System",
+      scraps: [
         {
-          "uuid": "none",
-          "name": "scrapCheck",
-          "selector": selector,
-          "isChecked": false
-        }
-      ]
-    }
+          url: "https://www.example.com",
+          selectors: [
+            {
+              uuid: "3a1e98b8-173c-4a5c-bbc1-125812212e36",
+              name: "test",
+              selector: "title",
+              value: "",
+              isChecked: true,
+            },
+          ],
+        },
+      ],
+    };
+    
+    
 
     setIsLoading(true);
 
     try {
       const response = await axios.post('http://localhost:3000/api/scrapData', scrapData);
-      console.log(response.data)
-      setResult(response.data);
+      setResult(response.data[0].uuid);
     } catch (error) {
       console.log(error);
     }
@@ -79,10 +73,8 @@ export default function MyComponent() {
       </form>
       <Box mt="2.5em">
         {isLoading && <div>Wait...</div>}
-        {result && (<div>Result: 
-          <p>URL: {result.url}</p>
-          <p>Selector: {result.selectors[0].selector}</p>
-          <p>Value: {result.selectors[0].value}</p>
+        {result && (<div>Result:&nbsp;
+          {result}
           </div>)
           }
       </Box>

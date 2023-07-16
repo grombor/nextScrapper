@@ -131,6 +131,7 @@ const rawData = `{
       ]
     }
   ]
-}`;
+}
+`;
 
 export const data = JSON.parse(rawData);
