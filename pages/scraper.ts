@@ -1,5 +1,6 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
+import { applyFormatRules } from '../pages/formatRules'
 
 export async function scrapeValueFromWebsite(url, selectors) {
   try {
@@ -9,7 +10,7 @@ export async function scrapeValueFromWebsite(url, selectors) {
 
     const results = selectors.map((selector) => {
       const { uuid, name, selector: selectorString, isChecked } = selector;
-      const value = $(selectorString).text();
+      let value = applyFormatRules($(selectorString).text());
 
       return {
         uuid,
@@ -20,7 +21,7 @@ export async function scrapeValueFromWebsite(url, selectors) {
       };
     });
 
-    return results;
+    return results.filter((result) => result.value !== '');
   } catch (error) {
     console.error(error);
     return null;
