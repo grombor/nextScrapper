@@ -8,6 +8,7 @@ interface FormatRule {
     { pattern: /\s+mm/g, replacement: '' },
     { pattern: /\s+/g, replacement: ' ' },
     { pattern: /^\s+|\s+$/g, replacement: '' },
+    { pattern: /,(\d{2})/, replacement: '' },
   ];
   
   export function applyFormatRules(text: string): string {

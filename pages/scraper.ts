@@ -12,16 +12,20 @@ export async function scrapeValueFromWebsite(url, selectors) {
       const { uuid, name, selector: selectorString, value: newValue, isChecked } = selector;
       let scrapedValue = applyFormatRules($(selectorString).text());
 
+      if (newValue !== "") {
+        scrapedValue = newValue
+      }
+
       return {
         uuid,
         name,
         selector: selectorString,
-        value: newValue ?? scrapedValue,
+        value: scrapedValue,
         isChecked: Boolean(isChecked),
       };
     });
 
-    return results.filter((result) => result.value !== '');
+    return results
   } catch (error) {
     console.error(error);
     return null;
