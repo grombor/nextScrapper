@@ -1,52 +1,23 @@
-"use client"
-
-import React from 'react'
-import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import React from 'react';
+import { PrismaClient } from '@prisma/client';
 
 const HomePage = () => {
-  return (
+  const prisma = new PrismaClient();
 
+  async function main() {
+    const newScrap = await prisma.scrap.create({
+      data: {
+        name: 'Alice',
+      },
+    });
 
-    <Table variant="simple">
-      <Thead>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        <Tr>
-          <Td>Row 1, Column 1</Td>
-          <Td>Row 1, Column 2</Td>
-        </Tr>
-        <Tr>
-          <Td>Row 2, Column 1</Td>
-          <Td>Row 2, Column 2</Td>
-        </Tr>
-      </Tbody>
-      <Thead>
-        <Tr>
-          <Th>Column A</Th>
-          <Th>Column B</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        <Tr>
-          <Td>Row 1, Column A</Td>
-          <Td>Row 1, Column B</Td>
-        </Tr>
-        <Tr>
-          <Td>Row 2, Column A</Td>
-          <Td>Row 2, Column B</Td>
-        </Tr>
-        <Tr>
-          <Td>Row 3, Column A</Td>
-          <Td>Row 3, Column B</Td>
-        </Tr>
-      </Tbody>
-    </Table>
+    const scraps = await prisma.user.findMany();
+    console.log(scraps);
+  }
 
-  )
-}
+  main();
 
-export default HomePage
+  return <div>homePage</div>;
+};
+
+export default HomePage;

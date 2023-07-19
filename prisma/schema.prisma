@@ -6,28 +6,11 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model Group {
-  uuid    String   @id @default(uuid())
-  name    String
-  scraps  Scrap[]
-}
-
 model Scrap {
-  uuid      String   @id @default(uuid())
-  url       String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Selector {
-  uuid      String   @id @default(uuid())
-  name      String
-  selector  String
-  isChecked Boolean
-  scrapUuid String
-  scrap     Scrap    @relation(fields: [scrapUuid], references: [uuid])
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String    
 }
