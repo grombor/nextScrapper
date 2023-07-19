@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Metoda żądania nie jest obsługiwana.' });
+    return res.status(405).json({ error: 'The request method is not supported.' });
   }
 
   try {
@@ -19,6 +19,6 @@ export default async function handler(req, res) {
     return res.status(201).json(newScrap);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Błąd serwera.' });
+    return res.status(500).json({ error: 'Server error.' });
   }
 }
