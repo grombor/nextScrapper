@@ -15,10 +15,10 @@ interface SelectorInput {
 interface ScrapData {
   uuid: string;
   name: string;
-  createdDate: string;
-  lastModifiedDate: string;
-  isChecked: boolean;
-  author: string;
+  createdDate?: string;
+  lastModifiedDate?: string;
+  isChecked?: boolean;
+  author?: string;
   scraps: {
     url: string;
     selectors: SelectorInput[];
@@ -33,10 +33,10 @@ export default async function handler(req, res) {
   try {
     const {
       name,
-      createdDate,
-      lastModifiedDate,
-      isChecked,
-      author,
+      createdDate = new Date().toISOString(),
+      lastModifiedDate = new Date().toISOString(),
+      isChecked = false,
+      author = 'admin',
       scraps,
     } = req.body as ScrapData;
 
