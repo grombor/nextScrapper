@@ -1,9 +1,31 @@
 {
     "client": "Thunder Client",
     "collectionName": "nextScrapperAPI",
-    "dateExported": "2023-07-14T19:24:13.139Z",
+    "dateExported": "2023-07-22T20:31:57.685Z",
     "version": "1.1",
-    "folders": [],
+    "folders": [
+        {
+            "_id": "433ebd5d-c871-4de9-bbae-c91c3add9c09",
+            "name": "deleteScrap",
+            "containerId": "",
+            "created": "2023-07-20T04:03:41.558Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "895742ea-5d2b-40ba-a7d3-8fe353586fd4",
+            "name": "createScrap",
+            "containerId": "",
+            "created": "2023-07-20T05:31:27.434Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "0e5bdc92-fcd4-4eee-8b58-833e4ac0e544",
+            "name": "getScraps",
+            "containerId": "",
+            "created": "2023-07-20T05:34:27.546Z",
+            "sortNum": 30000
+        }
+    ],
     "requests": [
         {
             "_id": "b47ae3d6-6e08-4d6b-aeec-03c6a0f6bf11",
@@ -14,12 +36,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-07-11T21:09:16.352Z",
-            "modified": "2023-07-14T18:48:27.669Z",
+            "modified": "2023-07-21T06:27:18.644Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n  \"name\": \"Site XYZ\",\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\n  \"isChecked\": false,\n  \"author\": \"Bard\",\n  \"scraps\": [\n    {\n      \"url\": \"https://www.example.com\",\n      \"selectors\": [\n                {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"title\",\n          \"selector\": \"title\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"name\",\n          \"selector\": \"product-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e8b9987f-bfbb-4c0c-bc35-7d95a0e10543\",\n          \"name\": \"dealer\",\n          \"selector\": \"dealer-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"f8c43215-b249-4d8e-b9b1-12f6a88335a5\",\n          \"name\": \"manufacturer\",\n          \"selector\": \"manufacturer-name\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"90e714bb-1a17-492f-bdf1-8c5d70db1620\",\n          \"name\": \"month\",\n          \"selector\": \"month\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"dfc58a3a-79d3-4ab5-89d0-0e68a26ac6a1\",\n          \"name\": \"year\",\n          \"selector\": \"year\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e9f5822a-3e62-42db-bb20-6ab1c53d875c\",\n          \"name\": \"model\",\n          \"selector\": \"model\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"172be69a-1609-454f-b21c-739d4ae2b4d4\",\n          \"name\": \"substitute\",\n          \"selector\": \"substitute\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"5e518e6e-518b-4e17-aa4a-c8f57fd61b6a\",\n          \"name\": \"cataloguePriceNett\",\n          \"selector\": \"catalogue_price_nett\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"90f9c1b2-7084-4d64-b5d7-66ed2327e5e3\",\n          \"name\": \"shopPriceNett\",\n          \"selector\": \"shop_price_nett\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"d14ff67f-557d-42f1-8a14-167915f1fbad\",\n          \"name\": \"productHeight\",\n          \"selector\": \"product_height\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"e47fabb0-6aae-4f7a-8fd3-58b3b2b6418f\",\n          \"name\": \"productWidth\",\n          \"selector\": \"product_width\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"c58d8cbf-b654-41ce-a536-9fc82599fc5d\",\n          \"name\": \"productDepth\",\n          \"selector\": \"product_depth\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"758ce536-829f-4b55-a1f5-0f0e349c5371\",\n          \"name\": \"productFeatures\",\n          \"selector\": \"product_features\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"9fd64115-8d71-4c0b-b7c2-672e6bda71e9\",\n          \"name\": \"productCardLink\",\n          \"selector\": \"product_card_link\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"d799d5b4-3ef5-4986-bd67-6b6768c8e81d\",\n          \"name\": \"leadTime\",\n          \"selector\": \"lead_time\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"32a6a0f9-d3b6-4a11-8659-33b09b0f97a9\",\n          \"name\": \"productWarranty\",\n          \"selector\": \"product_warranty\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"uuid\": \"1d7e9af9-16b6-4d33-bc54-1798b0a32e20\",\n          \"name\": \"comment\",\n          \"selector\": \"comment\",\n          \"value\": \"\",\n          \"isChecked\": true\n        }\n      ]\n    }\n  ]\n}\n",
+                "raw": "{\n  \"data\": [\"64ba23384655da8058db407c\"]\n}",
                 "form": []
             },
             "tests": [
@@ -38,46 +60,20 @@
             ]
         },
         {
-            "_id": "1ff53afa-72e4-4899-bb4c-4c86de5e1235",
+            "_id": "26d751a8-e562-4cb1-a0f1-b455bf8ffd4b",
             "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
             "containerId": "",
-            "name": "getScrapData",
-            "url": "http://localhost:3000/api/scrapData",
-            "method": "GET",
-            "sortNum": 20000,
-            "created": "2023-07-11T21:09:27.033Z",
-            "modified": "2023-07-11T21:10:30.287Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"url\": \"https://www.example.com\",\n  \"selectors\": [\n    {\n      \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n      \"name\": \"Header\",\n      \"selector\": \"h1\",\n      \"isChecked\": true\n    },\n    {\n      \"uuid\": \"e62de0ab-79ae-4c80-ac2a-b6a9986090f5\",\n      \"name\": \"Paragraph\",\n      \"selector\": \"p\",\n      \"isChecked\": false\n    }\n  ]\n}\n",
-                "form": []
-            },
-            "tests": [
-                {
-                    "type": "res-code",
-                    "custom": "",
-                    "action": "equal",
-                    "value": "405"
-                }
-            ]
-        },
-        {
-            "_id": "e9fdbd74-35e5-47dd-9b6d-09eea97bac8b",
-            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
-            "containerId": "",
-            "name": "checkSelector",
-            "url": "http://localhost:3000/api/scrapData",
+            "name": "postGetScrap",
+            "url": "http://localhost:3000/api/getScraps",
             "method": "POST",
-            "sortNum": 30000,
-            "created": "2023-07-11T21:09:31.913Z",
-            "modified": "2023-07-14T19:21:26.171Z",
+            "sortNum": 20000,
+            "created": "2023-07-20T05:38:48.363Z",
+            "modified": "2023-07-20T05:44:05.168Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n  \"name\": \"Site XYZ\",\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\n  \"isChecked\": false,\n  \"author\": \"Bard\",\n  \"scraps\": [\n    {\n      \"url\": \"https://www.example.com\",\n      \"selectors\": [\n                {\n          \"uuid\": \"3a1e98b8-173c-4a5c-bbc1-125812212e36\",\n          \"name\": \"title\",\n          \"selector\": \"title\",\n          \"value\": \"\",\n          \"isChecked\": true\n        }\n    ]\n    }\n]\n}",
+                "raw": "{\n  \"data\": [\n    \"64b8c484111446940dbae2e1\",\n    \"64b8c997111446940dbae2f6\"\n    ]\n}",
                 "form": []
             },
             "tests": [
@@ -96,20 +92,39 @@
             ]
         },
         {
-            "_id": "90a51e85-298e-41a1-adb6-1c826846fecb",
+            "_id": "3c208783-0507-46e1-be49-308f760e77ea",
             "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
-            "containerId": "",
-            "name": "getCheckSelector",
-            "url": "http://localhost:3000/api/scrapData",
-            "method": "GET",
-            "sortNum": 40000,
-            "created": "2023-07-11T21:09:37.409Z",
-            "modified": "2023-07-11T21:14:44.983Z",
+            "containerId": "433ebd5d-c871-4de9-bbae-c91c3add9c09",
+            "name": "deleteScraps",
+            "url": "http://localhost:3000/api/deleteScraps",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-07-20T04:04:04.124Z",
+            "modified": "2023-07-22T20:26:51.347Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"url\": \"https://cheerio.js.org/docs/basics/loading\",\n  \"selectors\": [\n    {\n      \"uuid\": \"d039a4cb-c61d-4b78-b689-d3ac8d1dd188\",\n      \"name\": \"title\",\n      \"selector\": \"title\",\n      \"isChecked\": true\n    }\n  ]\n}",
+                "raw": "  {\n    \"ids\":[\n    \"64bb77378a6320e62703fd05\",\n    \"64bb774d8a6320e62703fd17\",\n    \"64bb774d8a6320e62703fd15\"\n    ]\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2d17b82e-04da-4a2b-822c-628d6ddc1d7b",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "895742ea-5d2b-40ba-a7d3-8fe353586fd4",
+            "name": "postCreateScrap - all params",
+            "url": "http://localhost:3000/api/postCreateScrap",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-07-20T05:31:46.247Z",
+            "modified": "2023-07-22T06:29:34.177Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\": \"Site ABC\",\r\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\r\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\r\n  \"isChecked\": false,\r\n  \"author\": \"Bard\",\r\n  \"url\": \"https://google.com\",\r\n  \"selectors\": [\r\n        {\r\n          \"name\": \"name\",\r\n          \"selector\": \"\",\r\n          \"value\": \"Promag\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"dealer\",\r\n          \"selector\": \"\",\r\n          \"value\": \"Promag S.A.\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"manufacturer\",\r\n          \"selector\": \"\",\r\n          \"value\": \"Promag S.A.\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"month\",\r\n          \"selector\": \"month\",\r\n          \"value\": \"7\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"year\",\r\n          \"selector\": \"year\",\r\n          \"value\": \"2023\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"model\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description1.rwd-320-hide > div.col-sm-9 > div\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"substitute\",\r\n          \"selector\": \"\",\r\n          \"value\": \"SUM 320W\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"cataloguePriceNett\",\r\n          \"selector\": \"catalogue_price_nett\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"shopPriceNett\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.price > div.netto.nettoPrice > span\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productHeight\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(1) > div:nth-child(4) > div.col-xs-5.value\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productWidth\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(1) > div:nth-child(1) > div.col-xs-5.value\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productDepth\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(2) > div:nth-child(1) > div.col-xs-5.value\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productFeatures\",\r\n          \"selector\": \"#opis\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productCardLink\",\r\n          \"selector\": \"product_card_link\",\r\n          \"value\": \"https://e-promag.pl/katalog/Szafka-BHP-pracownicza-SUPE300-02-7035,2831.html\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"leadTime\",\r\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-4 > div.row.availability > span\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"productWarranty\",\r\n          \"selector\": \"#opis > div.col-sm-12 > div > div > div > div:nth-child(1) > div > div:nth-child(2) > div.col-xs-5.value\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        },\r\n        {\r\n          \"name\": \"comment\",\r\n          \"selector\": \"#opis > div.col-sm-12 > div > div > div > div:nth-child(2) > div > div:nth-child(4) > div.col-xs-5.value\",\r\n          \"value\": \"\",\r\n          \"isChecked\": true\r\n        }\r\n      ]\r\n}\r\n",
                 "form": []
             },
             "tests": [
@@ -117,7 +132,60 @@
                     "type": "res-code",
                     "custom": "",
                     "action": "equal",
-                    "value": "405"
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "7b83aac6-960b-496b-b8f5-ab121dce5eb2",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "895742ea-5d2b-40ba-a7d3-8fe353586fd4",
+            "name": "postCreateScrap - only required params",
+            "url": "http://localhost:3000/api/postCreateScrap",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-07-20T05:43:22.045Z",
+            "modified": "2023-07-22T20:30:08.019Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Site 123\",\n  \"createdDate\": \"2023-07-14T11:15:00Z\",\n  \"lastModifiedDate\": \"2023-07-14T11:15:00Z\",\n  \"isChecked\": false,\n  \"author\": \"Bard\",\n  \"url\": \"https://onet.pl\",\n  \"selectors\": [\n        {\n          \"name\": \"name\",\n          \"selector\": \"\",\n          \"value\": \"Promag\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"dealer\",\n          \"selector\": \"\",\n          \"value\": \"Promag S.A.\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"manufacturer\",\n          \"selector\": \"\",\n          \"value\": \"Promag S.A.\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"month\",\n          \"selector\": \"month\",\n          \"value\": \"7\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"year\",\n          \"selector\": \"year\",\n          \"value\": \"2023\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"model\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description1.rwd-320-hide > div.col-sm-9 > div\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"substitute\",\n          \"selector\": \"\",\n          \"value\": \"SUM 320W\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"cataloguePriceNett\",\n          \"selector\": \"catalogue_price_nett\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"shopPriceNett\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.price > div.netto.nettoPrice > span\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productHeight\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(1) > div:nth-child(4) > div.col-xs-5.value\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productWidth\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(1) > div:nth-child(1) > div.col-xs-5.value\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productDepth\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-8 > div.row.properties > div > div > div:nth-child(2) > div:nth-child(1) > div.col-xs-5.value\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productFeatures\",\n          \"selector\": \"#opis\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productCardLink\",\n          \"selector\": \"product_card_link\",\n          \"value\": \"https://e-promag.pl/katalog/Szafka-BHP-pracownicza-SUPE300-02-7035,2831.html\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"leadTime\",\n          \"selector\": \"#main > div.container.wrapper > div:nth-child(6) > div.container-main > div.row.main-content-2 > div.col-sm-8.product > div.row.description3 > div.col-sm-4 > div.row.availability > span\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"productWarranty\",\n          \"selector\": \"#opis > div.col-sm-12 > div > div > div > div:nth-child(1) > div > div:nth-child(2) > div.col-xs-5.value\",\n          \"value\": \"\",\n          \"isChecked\": true\n        },\n        {\n          \"name\": \"comment\",\n          \"selector\": \"#opis > div.col-sm-12 > div > div > div > div:nth-child(2) > div > div:nth-child(4) > div.col-xs-5.value\",\n          \"value\": \"\",\n          \"isChecked\": true\n        }\n      ]\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "f8e63f06-a8b2-46ad-8577-56b823211a20",
+            "colId": "bca609d9-2f0d-4033-ae9b-d30adcd1e171",
+            "containerId": "0e5bdc92-fcd4-4eee-8b58-833e4ac0e544",
+            "name": "getScraps",
+            "url": "http://localhost:3000/api/getScraps",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-07-20T05:57:58.795Z",
+            "modified": "2023-07-22T06:03:29.620Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
                 }
             ]
         }
