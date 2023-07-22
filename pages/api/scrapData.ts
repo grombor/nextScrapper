@@ -1,71 +1,53 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+// api/deleteScrap.js
+import { PrismaClient } from '@prisma/client';
 import { scrapeValueFromWebsite } from '../scraper';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const prisma = new PrismaClient();
+
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res
-      .status(405)
-      .json({ error: 'The request method is not supported.' });
+    return res.status(405).json({ error: 'Request method is not supported.' });
   }
 
   try {
-    const {
-      uuid,
-      name,
-      createdDate,
-      lastModifiedDate,
-      isChecked,
-      author,
-      scraps,
-    } = req.body;
-
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const day = currentDate.getDate();
-
-    const results: {
-      uuid: string;
-      name: string;
-      createdDate: string;
-      lastModifiedDate: string;
-      isChecked: boolean;
-      author: string;
-      scraps: { url: string; selectors: string[] }[];
-    } = {
-      uuid,
-      name,
-      createdDate,
-      lastModifiedDate: currentDate.toLocaleString(),
-      isChecked,
-      author,
-      scraps: [],
-    };
-
-    const scrapedValues = await Promise.all(
-      scraps.map(async (scrap) => {
-        const { url, selectors } = scrap;
-        const scrapedValue: string[] = await scrapeValueFromWebsite(
-          url,
-          selectors
-        );
-        return {
-          url,
-          selectors: scrapedValue,
-        };
-      })
-    );
-
-    results.scraps = scrapedValues;
-
-    if (!results) {
-      return res.status(400).json({ error: 'Invalid request. No input.' });
+    const { data } = req.body;
+    if (!data || !Array.isArray(data)) {
+      return res.status(400).json({ error: 'Invalid or missing array of scrap ids to delete.' });
     }
 
-    return res.status(200).json(results);
+    // Find all Scrap entries with the provided ids and include associated selectors
+    const scraps = await prisma.scrap.findMany({
+      where: {
+        id: {
+          in: data.map(String),
+        },
+      },
+      include: {
+        scrapsData: true,
+      },
+    });
+
+    if (scraps.length === 0) {
+      return res.status(404).json({ error: 'No scraps found with the provided ids.' });
+    }
+
+    // scraps sa zwracane, teraz musz byc zaktualizowane
+    // const scrapedValues = await Promise.all(
+    //   scraps.map(async (scrap) => {
+    //     scrap.scrapsData.map(selector => {
+    //       const scrapedValue: Promise<any> = scrapeValueFromWebsite(
+    //         selector.url,
+    //         selector.selector
+    //       );
+    //       console.log(scrapedValue)
+    //       return scrapedValue
+    //     })
+    //   })
+    // );
+
+    // results.scraps = scrapedValues;
+
+    return res.status(200).json({ data: scraps });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Server error.' });

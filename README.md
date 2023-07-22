@@ -20,6 +20,8 @@ TODOs:
 - [ ] Jako użytkownik, po kliknięciu przycisku "Pobierz jako CSV", rozpocznie się pobieranie pliku .csv z danymi.
 - [ ] Jako użytkownik, pobrany plik .csv powinien mieć odpowiednie nagłówki kolumn i separator pola ustawiony na przecinek.
 - [ ] Jako użytkownik, pobrany plik .csv powinien zawierać wszystkie zapisane dane w odpowiedniej strukturze.
+- [ ] Dodać dzień do schema DB
+- [ ] Ulepszyć odpowiedzi serwera, tak aby posiadały optymalny UX i byly po angielsku
 
 
 - dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
