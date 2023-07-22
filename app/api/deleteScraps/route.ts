@@ -49,11 +49,11 @@ export async function POST(req: NextRequest) {
           return { id, deleted: false };
         }
 
-        // await prisma.scrap.delete({
-        //   where: {
-        //     id: String(id),
-        //   },
-        // });
+        await prisma.scrap.delete({
+          where: {
+            id: String(id),
+          },
+        });
 
         return { id, deleted: true };
       })
