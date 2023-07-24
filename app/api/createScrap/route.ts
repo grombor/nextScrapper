@@ -111,6 +111,6 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: 'Server error.' });
+    return NextResponse.json({ error: 'Server error.' }, { status: 201 });
   }
 }

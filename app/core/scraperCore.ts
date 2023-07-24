@@ -1,8 +1,8 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
-import { applyFormatRules } from '../pages/formatRules'
+import { applyFormatRules } from './formatRules'
 
-export async function scrapeValueFromWebsite(url, selectors) {
+export async function scrapWebsite(url, selectors) {
   try {
     const response = await axios.get(url);
     const html = response.data;

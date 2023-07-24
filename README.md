@@ -11,8 +11,8 @@ TODOs:
   - Zaakceptuję ustalenie limitu czasu na wykonanie żądania i otrzymam odpowiedni komunikat błędu, jeśli limit zostanie przekroczony.
 - [x] Jako użytkownik, chcę, aby pobieranie danych było wydajne, szczególnie gdy mam wiele selektorów.
   - Zaakceptuję równoczesne pobieranie danych dla różnych selektorów, co skróci czas wykonania żądania.
-- [ ] Jako użytkownik, chcę, aby wyniki scrapowania były dostępne szybko, zwłaszcza gdy zapytania są często wykonywane dla tych samych stron i selektorów.
-  - Zaakceptuję zastosowanie pamięci podręcznej, która przechowa wyniki scrapowania na określony czas, aby przyspieszyć dostęp do danych.
+- [x] Jako użytkownik, chcę, aby wyniki scrapowania były dostępne szybko, zwłaszcza gdy zapytania są często wykonywane dla tych samych stron i selektorów.
+  - [ ] zastosowanie pamięci podręcznej, która przechowa wyniki scrapowania na określony czas, aby przyspieszyć dostęp do danych.
 - [ ] Jako administrator, chcę mieć dostęp do logów, aby monitorować działanie endpointa i diagnozować ewentualne problemy.
   - Zaakceptuję zapisywanie informacji o żądaniach, odpowiedziach i błędach, które mogą wystąpić podczas scrapowania.
 - [ ] Jako użytkownik, chcę mieć możliwość pobrania zapisanych danych w formacie .csv, aby móc łatwo i wygodnie udostępniać i analizować te dane w różnych programach.
@@ -22,6 +22,9 @@ TODOs:
 - [ ] Jako użytkownik, pobrany plik .csv powinien zawierać wszystkie zapisane dane w odpowiedniej strukturze.
 - [ ] Dodać dzień do schema DB
 - [ ] Ulepszyć odpowiedzi serwera, tak aby posiadały optymalny UX i byly po angielsku
+- [ ] Zastosowac fetchData tam gdzie dotad bylo pozyskiwnie danych z pomocą ids z BD
+- [ ] Dodać cene brutto jako parametr
+- [ ] Napisac endpoint do checkScrap
 
 
 - dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
