@@ -24,13 +24,14 @@ TODOs:
 - [ ] Ulepszyć odpowiedzi serwera, tak aby posiadały optymalny UX i byly po angielsku
 - [ ] Zastosowac fetchData tam gdzie dotad bylo pozyskiwnie danych z pomocą ids z BD
 - [ ] Dodać cene brutto jako parametr
-- [ ] Napisac endpoint do checkScrap
+- [x] Napisac endpoint do checkScrap
 
 
-- dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
+- [x] dodanie name do selectorow, aby mozna bylo odczytac co sie scrapowalo
 - dodanie odpowiednika, nazwy producenta etc
 - nazwa grupy powinna pochodzic z JSONa
 - dodanie apidoc do jsdocs
+- [ ] testowanie dodawanie nowych scrapow
 
 endpoint scrapujacy uzywajacy protokolu:
 
