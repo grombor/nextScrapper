@@ -38,7 +38,6 @@ const AddScrap = () => {
       [name]: value,
       selectors: selectors,
     });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -62,6 +61,14 @@ const AddScrap = () => {
 
   };
 
+    const handleNameChange = (e) => {
+      setSelectorName(e.target.value);
+    };
+
+    const handleValueChange = (e) => {
+      setSelectorValue(e.target.value);
+    };
+
   const handlePlusClick = (e) => {
     e.preventDefault();
     const newSelector = {
@@ -72,39 +79,7 @@ const AddScrap = () => {
     setSelectors((prevValue) => [...prevValue, newSelector]);
     setSelectorName('');
     setSelectorValue('');
-  };
-
-  const SelectorCard = ({ uuid }) => {
-    const handleNameChange = (e) => {
-      setSelectorName(e.target.value);
-    };
-
-    const handleValueChange = (e) => {
-      setSelectorValue(e.target.value);
-    };
-
-    return (
-      <FormControl key={uuid}>
-        <FormLabel>Selector</FormLabel>
-        <InputGroup>
-          <Input
-            placeholder="Selector name"
-            onChange={handleNameChange}
-            value={selectorName}
-            name="selectorName"
-            id="selectorName"
-          />
-          <Input
-            placeholder="Selector value"
-            onChange={handleValueChange}
-            value={selectorValue}
-            name="selectorValue"
-            id="selectorValue"
-          />
-          <Button onClick={handlePlusClick} px={2}>Add</Button>
-        </InputGroup>
-      </FormControl>
-    );
+    console.log(selectors)
   };
 
   const handleDelete = (id) => {
@@ -137,7 +112,28 @@ const AddScrap = () => {
           />
         </FormControl>
 
-        <SelectorCard uuid={uuidv4()} />
+<FormControl>
+        <FormLabel>Selector</FormLabel>
+        <InputGroup>
+          <Input
+            placeholder="Selector name"
+            onChange={handleNameChange}
+            value={selectorName}
+            name="selectorName"
+            id="selectorName"
+            mr={2}
+          />
+          <Input
+            placeholder="Selector value"
+            onChange={handleValueChange}
+            value={selectorValue}
+            name="selectorValue"
+            id="selectorValue"
+            mx={2}
+          />
+          <Button onClick={handlePlusClick} px={'14px'}>Add</Button>
+        </InputGroup>
+        </FormControl>
 
         {selectors.length < 1 ? <Heading as='h3' size='md'>No selectors, make some</Heading> : <Heading as='h3' size='md'>Selectors</Heading>}
         <List spacing={3}>
