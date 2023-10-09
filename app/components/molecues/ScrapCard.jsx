@@ -1,47 +1,44 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
+  Box,
   Text,
   Heading,
   Flex,
   Spacer,
   Checkbox,
-  Center,
 } from '@chakra-ui/react';
 
-const ScrapCard = ({ data }) => {
+const ScrapCard = ({ data, onCheckboxChange }) => {
+  const [isChecked, setIsChecked] = useState(data.isChecked);
+
   const handleCheckboxChange = () => {
-    onCheckboxChange(id, !isChecked);
+    const newCheckedValue = !isChecked;
+    setIsChecked(newCheckedValue);
+    onCheckboxChange(data.id, newCheckedValue);
   };
-  
 
   return (
-    <Card my={'2em'}>
-      <CardBody>
-        <Flex>
-          <div>
-            <Heading as="h2" size="lg">
-              {data.name}
-            </Heading>
-            <Text>
-              {data.url}
-            </Text>
-          </div>
-          <Spacer />
-          <Center>
-            <Checkbox size='lg' 
-            id={data.id} 
-            defaultChecked={data.isChecked} 
-            onChange={() => handleCheckboxChange(data.id)}/>
-          </Center>
-        </Flex>
-      </CardBody>
-    </Card>
+    <Box borderWidth="1px" borderRadius="lg" p={4} mb={4}>
+      <Flex alignItems="center">
+        <Box>
+          <Heading as="h2" size="lg">
+            {data.name}
+          </Heading>
+          <Text fontSize="md" color="gray.600">
+            {data.url}
+          </Text>
+        </Box>
+        <Spacer />
+        <Checkbox
+          size="lg"
+          id={data.id}
+          isChecked={isChecked}
+          onChange={handleCheckboxChange}
+        >
+          {isChecked ? 'Zaznaczone' : 'Nie zaznaczone'}
+        </Checkbox>
+      </Flex>
+    </Box>
   );
 };
 
