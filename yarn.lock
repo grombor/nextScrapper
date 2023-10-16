@@ -1625,6 +1625,11 @@ catharsis@^0.9.0:
   dependencies:
     lodash "^4.17.15"
 
+chakra-ui-ionicons@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/chakra-ui-ionicons/-/chakra-ui-ionicons-0.3.3.tgz#51187237701985d48cae9e5cd2d9bfa238a7adcb"
+  integrity sha512-1SRV11HKmwJyWk9y8mlFgs3jTLnk9GIlZG0ipIp2VejSlaeiNx1mnbB/Rvzcbs7Z8PdT3vYo+j4bwiW1V38RDg==
+
 chalk@^2.0.0:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"

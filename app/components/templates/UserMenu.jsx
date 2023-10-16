@@ -9,7 +9,7 @@ const UserMenu = () => {
         <Link href="/scrapCheck" mr='2em'>Check Scrap</Link>
         <Link href="/scrapData" mr='2em'>Scrap from JSON</Link>
         <Link href="/addScrap" mr='2em'>Add scrap</Link>
-        <Link href="/scrapAll" mr='2em'>Scrap</Link>
+        <Link href="/scrap-list" mr='2em'>Scrap</Link>
       </Center>
     </Box>
   );

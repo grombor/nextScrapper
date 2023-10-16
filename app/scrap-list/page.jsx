@@ -9,7 +9,7 @@ const [scraps, setScraps] = useState([])
     
 async function getScraps() {
     try {
-        const response = await fetch('http://localhost:3000/api/getScraps');
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + 'scrap-list');
         
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

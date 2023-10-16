@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@prisma/client": "^5.0.0",
     "axios": "^1.4.0",
+    "chakra-ui-ionicons": "^0.3.3",
     "cheerio": "^1.0.0-rc.12",
     "csv-writer": "^1.6.0",
     "eslint": "8.43.0",
