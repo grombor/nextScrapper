@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+// nie dziala
+
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {
   Button,
@@ -17,6 +19,7 @@ import {
 import { AddIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons';
 
 const AddScrap = () => {
+
   const initialFormData = {
     name: '',
     createdDate: '',
@@ -30,6 +33,10 @@ const AddScrap = () => {
   const [selectors, setSelectors] = useState([]);
   const [selectorName, setSelectorName] = useState('');
   const [selectorValue, setSelectorValue] = useState('');
+
+  useEffect(() => {
+    console.log('JSON result:', JSON.stringify(formData, null, 2));
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,9 +53,8 @@ const AddScrap = () => {
       ...formData,
       selectors: selectors,
     });
-    console.log('JSON result:', JSON.stringify(formData, null, 2));
 
-    const response = await fetch('http://localhost:3000/api/createScrap', {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + 'scrap-add', {
       method: 'POST',
       body: formData,
     });
@@ -83,6 +89,7 @@ const AddScrap = () => {
   };
 
   const handleDelete = (id) => {
+    // usuwanie powinno isc po uuid
     const newSelectors = selectors.filter(item => item.name !== id);
     setSelectors(newSelectors);
   }
@@ -131,11 +138,12 @@ const AddScrap = () => {
             id="selectorValue"
             mx={2}
           />
-          <Button onClick={handlePlusClick} px={'14px'}>Add</Button>
+          <Button onClick={handlePlusClick} px={'14px'}><AddIcon /></Button>
         </InputGroup>
         </FormControl>
 
         {selectors.length < 1 ? <Heading as='h3' size='md'>No selectors, make some</Heading> : <Heading as='h3' size='md'>Selectors</Heading>}
+
         <List spacing={3}>
           {selectors.map((item) => (
             <ListItem key={item.name}>

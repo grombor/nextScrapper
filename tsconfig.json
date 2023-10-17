@@ -27,7 +27,7 @@
     "**/*.tsx",
     "pages/api/postCreateScrap.ts",
     "app/api/getScraps/route.ts",
-    "app/addScrap/page.jsx",
+    "app/scrap-add/page.jsx",
     "app/scrap-list/page.jsx"
   ],
   "exclude": ["node_modules"]
